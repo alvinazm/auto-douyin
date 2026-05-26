@@ -4,9 +4,9 @@ ui.layout(
     <vertical padding="16" bg="#ffffff">
         <text text="抖音自动化助手" textSize="22sp" textColor="#000000" marginBottom="16" gravity="center"/>
         
-        <checkbox id="watchCB" text="观看视频" checked="true"/>
+        <checkbox id="watchCB" text="看视频" checked="true"/>
         <linear marginLeft="16" marginBottom="8">
-            <text text="观看 " textColor="#666666"/>
+            <text text="每个视频看 " textColor="#666666"/>
             <input id="watchSec" w="60" text="3" inputType="number"/>
             <text text=" 秒" textColor="#666666"/>
         </linear>

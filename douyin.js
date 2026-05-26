@@ -18,7 +18,7 @@ var guanzhuBtn = descContains("关注").filter(function(b) {
 if (guanzhuBtn) {
     guanzhuBtn.click();
     console.log("关注成功");
-    sleep(500);
+    sleep(2000);
 }
 
 console.log("4. 点赞");
@@ -29,6 +29,7 @@ var likeBtn = descContains("未点赞").filter(function(b) {
 if (likeBtn) {
     likeBtn.click();
     console.log("点赞成功");
+    sleep(2000);
 }
 
 // 4.5 收藏
@@ -39,6 +40,7 @@ var collectBtn = descContains("收藏").filter(function(b) {
 if (collectBtn) {
     collectBtn.click();
     console.log("收藏成功");
+    sleep(2000);
 }
 
 console.log("5. 点击评论按钮");
@@ -82,6 +84,7 @@ id("eq0").paste();
 sleep(1000);
 
 console.log("评论输入完成");
+sleep(2000);
 
 // 7. 点击发送按钮
 var sendBtn = text("发送").filter(function(b) {
@@ -95,7 +98,7 @@ if (sendBtn) {
     var y = (sendBounds.top + sendBounds.bottom) / 2;
     click(x, y);
     console.log("发送成功");
-    sleep(1000);
+    sleep(3000);
 }
 
 // 8. 返回（两次返回到主视频页面）
