@@ -7,7 +7,7 @@ ui.layout(
         <checkbox id="watchCB" text="观看视频" checked="true"/>
         <linear marginLeft="16" marginBottom="8">
             <text text="观看 " textColor="#666666"/>
-            <input id="watchSec" w="60" text="10" inputType="number"/>
+            <input id="watchSec" w="60" text="3" inputType="number"/>
             <text text=" 秒" textColor="#666666"/>
         </linear>
         
@@ -72,7 +72,7 @@ ui.startBtn.on("click", function() {
             }).findOne(2000);
             if (guanzhuBtn) {
                 guanzhuBtn.click();
-                sleep(500);
+                sleep(3000);
             }
         }
         
@@ -85,7 +85,7 @@ ui.startBtn.on("click", function() {
             }).findOne(2000);
             if (likeBtn) {
                 likeBtn.click();
-                sleep(500);
+                sleep(3000);
             }
         }
         
@@ -98,7 +98,7 @@ ui.startBtn.on("click", function() {
             }).findOne(2000);
             if (collectBtn) {
                 collectBtn.click();
-                sleep(500);
+                sleep(3000);
             }
         }
         
@@ -116,22 +116,18 @@ ui.startBtn.on("click", function() {
                 // 输入评论
                 click(360, 2244);
                 sleep(1500);
-                id("eq0").click();
-                sleep(300);
-                setClip("");
-                sleep(200);
-                id("eq0").paste();
-                sleep(500);
-                setClip(config.commentText);
-                sleep(200);
-                id("eq0").paste();
-                sleep(1000);
-                
+
+                var inputField = id("eq0").findOne(2000);
+                if (inputField) {
+                    inputField.setText(config.commentText);
+                    sleep(1000);
+                }
+
                 // 点击发送
                 var sendBtn = text("发送").filter(function(b) {
                     var bounds = b.bounds();
-                    return bounds.top >= 600 && bounds.top <= 800;
-                }).findOne(2000);
+                    return bounds.top >= 600 && bounds.top <= 1200;
+                }).findOne(3000);
                 if (sendBtn) {
                     var sendBounds = sendBtn.bounds();
                     click((sendBounds.left + sendBounds.right) / 2, (sendBounds.top + sendBounds.bottom) / 2);
@@ -140,9 +136,9 @@ ui.startBtn.on("click", function() {
                 
                 // 返回
                 back();
-                sleep(500);
+                sleep(3000);
                 back();
-                sleep(500);
+                sleep(3000);
             }
         }
         
