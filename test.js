@@ -1,24 +1,30 @@
 console.show();
-console.log("测试动态查找关注按钮...");
+console.log("测试动态查找收藏按钮...");
 
-// 查找所有 desc 包含"关注"的 Button
-var followBtns = descContains("关注").filter(function(b) {
-    var bounds = b.bounds();
-    // 过滤条件：右侧区域，y 在视频点赞按钮附近
-    return bounds.left >= 800 && bounds.top >= 900 && bounds.top <= 1300;
-}).find();
+// 尝试多种收藏按钮描述
+var collectBtn = null;
+var descriptions = ['未收藏', '收藏'];
 
-console.log("找到关注按钮数量: " + followBtns.length);
+for (var i = 0; i < descriptions.length; i++) {
+    var btns = descContains(descriptions[i]).filter(function(b) {
+        var bounds = b.bounds();
+        return bounds.left >= 800 && bounds.top >= 900 && bounds.top <= 1800;
+    }).find();
 
-if (followBtns.length > 0) {
-    // 取第一个（应该是视频旁边的关注按钮）
-    var followBtn = followBtns[0];
-    console.log("关注按钮位置: " + JSON.stringify(followBtn.bounds()));
+    console.log('找到 "' + descriptions[i] + '" 按钮数量: ' + btns.length);
+    
+    if (btns.length > 0) {
+        collectBtn = btns[0];
+        console.log('使用: ' + descriptions[i]);
+        break;
+    }
+}
 
-    // 点击元素
-    followBtn.click();
+if (collectBtn) {
+    console.log('收藏按钮位置: ' + JSON.stringify(collectBtn.bounds()));
+    collectBtn.click();
     sleep(1500);
-    console.log("点击成功");
+    console.log('收藏成功');
 } else {
-    console.log("未找到关注按钮");
+    console.log('未找到收藏按钮');
 }

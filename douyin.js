@@ -31,6 +31,16 @@ if (likeBtn) {
     console.log("点赞成功");
 }
 
+// 4.5 收藏
+var collectBtn = descContains("收藏").filter(function(b) {
+    var bounds = b.bounds();
+    return bounds.left >= 800 && bounds.top >= 900 && bounds.top <= 1800;
+}).findOne(2000);
+if (collectBtn) {
+    collectBtn.click();
+    console.log("收藏成功");
+}
+
 console.log("5. 点击评论按钮");
 var commentBtn = descContains("评论").filter(function(b) {
     var bounds = b.bounds();
